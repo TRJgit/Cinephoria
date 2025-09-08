@@ -1,99 +1,30 @@
 from django.db import models
 
-# Create your models here.
-
-class MovieName(models.Model):
-    name = models.CharField(max_length=50)
+class Actor(models.Model):
+    name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
-           
-    
-class Desc(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    description = models.CharField(max_length=200)
-    
-    def __str__(self):
-        return self.description
-    
-class Genre(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    genre = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.genre
 
-class Duration(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    duration = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.duration
-    
-class ReleaseDate(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    releasedate = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.releasedate
-    
-class IMDB(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    IMDB = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.IMDB
-
-class RottenTomatoes(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    rottentomatoes = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.rottentomatoes
-
-class Language(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    language = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.language
-    
 class Director(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    director = models.CharField(max_length=20)
-    
+    name = models.CharField(max_length=100)
+
     def __str__(self):
-        return self.director
+        return self.name
 
+class Movie(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    genre = models.CharField(max_length=100)
+    duration = models.CharField(max_length=20)
+    release_date = models.CharField(max_length=20)
+    imdb_rating = models.CharField(max_length=20)
+    rottentomatoes_rating = models.CharField(max_length=20)
+    language = models.CharField(max_length=20)
+    director = models.ForeignKey(Director, on_delete=models.SET_NULL, null=True, blank=True)
+    actors = models.ManyToManyField(Actor)
+    poster = models.ImageField(upload_to='posters/')
+    trailer_link = models.URLField(max_length=500)
 
-class Actor1(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    Actor1 = models.CharField(max_length=20)
-    
     def __str__(self):
-        return self.Actor1
-
-class Actor2(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    Actor2 = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.Actor2
-    
-
-
-
-    
-class link(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    link = models.CharField(max_length=500)
-    
-    def __str__(self):
-        return self.link
-
-class image(models.Model):
-    moviename = models.ForeignKey(MovieName, on_delete=models.CASCADE)
-    image = models.CharField(max_length=500)
-    
-    def __str__(self):
-        return self.image
+        return self.title

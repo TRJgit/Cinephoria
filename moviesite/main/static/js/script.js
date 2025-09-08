@@ -1,34 +1,29 @@
-const arrows = document.querySelectorAll(".arrow");
-const movieLists = document.querySelectorAll(".movie-list");
+document.addEventListener("DOMContentLoaded", function() {
+    const arrows = document.querySelectorAll(".arrow");
+    const movieLists = document.querySelectorAll(".movie-list");
 
-arrows.forEach((arrow, i) => {
-  const itemNumber = movieLists[i].querySelectorAll("img").length;
-  let clickCounter = 0;
-  arrow.addEventListener("click", () => {
-    const ratio = Math.floor(window.innerWidth / 270);
-    clickCounter++;
-    if (itemNumber - (4 + clickCounter) + (4 - ratio) >= 0) {
-      movieLists[i].style.transform = `translateX(${movieLists[i].computedStyleMap().get("transform")[0].x.value - 300
-        }px)`;
-    } else {
-      movieLists[i].style.transform = "translateX(0)";
-      clickCounter = 0;
-    }
-  });
+    arrows.forEach((arrow, i) => {
+        const movieListItem = movieLists[i].querySelector(".movie-list-item");
+        if (!movieListItem) return; // Skip if the list is empty
 
-  console.log(Math.floor(window.innerWidth / 270));
-});
+        const itemStyle = window.getComputedStyle(movieListItem);
+        const itemWidth = movieListItem.offsetWidth + parseInt(itemStyle.marginRight);
+        let scrollPosition = 0;
 
-//TOGGLE
+        arrow.addEventListener("click", () => {
+            const listWidth = movieLists[i].scrollWidth; // Total width of all items
+            const wrapperWidth = movieLists[i].parentElement.offsetWidth; // Visible width of the container
+            const maxScroll = listWidth - wrapperWidth; // Maximum scrollable distance
 
-const ball = document.querySelector(".toggle-ball");
-const items = document.querySelectorAll(
-  ".container,.movie-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle"
-);
+            // Move the list to the left
+            scrollPosition -= itemWidth * 3; // Scroll by 3 items at a time for a nice effect
 
-ball.addEventListener("click", () => {
-  items.forEach((item) => {
-    item.classList.toggle("active");
-  });
-  ball.classList.toggle("active");
+            // If we've scrolled past the end, reset to the beginning
+            if (Math.abs(scrollPosition) > maxScroll) {
+                scrollPosition = 0;
+            }
+
+            movieLists[i].style.transform = `translateX(${scrollPosition}px)`;
+        });
+    });
 });

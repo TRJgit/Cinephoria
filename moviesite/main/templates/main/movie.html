@@ -1,77 +1,51 @@
 {% extends "main/moviebase.html" %}
 
-{% block title %} {{ mn.name }} {% endblock %}
+{% block title %} {{ movie.title }} {% endblock %}
 
-{% block moviename %} {{ mn.name }} {% endblock %}
+{% block moviename %} {{ movie.title }} {% endblock %}
 
-
-
-{% block poster %} 
-    {% for image in mn.image_set.all %}
-        {{ image.image }}
-    {% endfor %} 
+{% block poster %}
+    <img src="{{ movie.poster.url }}" alt="poster" style="width: 300px; height: 450px;">
 {% endblock %}
 
 
-{% block director %} 
-    {% for director in mn.director_set.all %}
-        {{ director.director }}
-    {% endfor %} 
+{% block director %}
+    {{ movie.director.name }}
 {% endblock %}
 
 
-{% block discription %} 
-    {% for desc in mn.desc_set.all %}
-        {{ desc.description }}
+{% block discription %}
+    {{ movie.description }}
+{% endblock %}
+
+
+{% block genre %}
+    {{ movie.genre }}
+{% endblock %}
+
+
+{% block cast %}
+    {% for actor in movie.actors.all %}
+        {{ actor.name }}{% if not forloop.last %}, {% endif %}
     {% endfor %}
 {% endblock %}
 
 
-{% block genre %} 
-    {% for genre in mn.genre_set.all %}
-        {{ genre.genre }}
-    {% endfor %}    
+{% block duration %}
+    {{ movie.duration }}
 {% endblock %}
 
 
-{% block cast %} 
-    {% for Actor1 in mn.actor1_set.all %}
-        {{ Actor1.Actor1 }}
-    {% endfor %}
+{% block imdb %}
+    {{ movie.imdb_rating }}
 {% endblock %}
 
 
-{% block actor %}    
-    {% for Actor2 in mn.actor2_set.all %}
-        {{Actor2.Actor2 }}
-    {% endfor %}
+{% block rt %}
+    {{ movie.rottentomatoes_rating }}
 {% endblock %}
 
 
-{% block duration %} 
-    {% for duration in mn.duration_set.all %}
-        {{ duration.duration }}
-    {% endfor %}
+{% block year %}
+    {{ movie.release_date }}
 {% endblock %}
-
-
-{% block imdb %} 
-    {% for IMDB in mn.imdb_set.all %}
-        {{ IMDB.IMDB }}
-    {% endfor %} 
-{% endblock %}
-
-
-{% block rt %} 
-    {% for rottentomatoes in mn.rottentomatoes_set.all %}
-        {{ rottentomatoes.rottentomatoes }}
-    {% endfor %}
-{% endblock %}
-
-
-{% block year %} 
-    {% for releasedate in mn.releasedate_set.all %}
-        {{ releasedate.releasedate }}
-    {% endfor %} 
-{% endblock %}
-

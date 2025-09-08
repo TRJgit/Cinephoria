@@ -132,7 +132,7 @@
 }
  </style>
  <title>{% block title %}   {% endblock %}</title>
- <link rel="stylesheet" href="static/css/style1.css">
+ <link rel="stylesheet" href="/static/css/style1.css">
  <link
  href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family
  =Sen:wght@400;700;800&display=swap"
@@ -148,7 +148,7 @@
         </div>
     <div class="menu-container">
         <ul class="menu-list">
-            <li class="menu-list-item active">Home</li>
+            <li class="menu-list-item active"><a href="{% url 'home' %}" style="text-decoration: none; color: white;">Home</a></li>
             <li class="menu-list-item">Movies</li>
             <li class="menu-list-item">Series</li>
             <li class="menu-list-item">Popular</li>
@@ -157,36 +157,30 @@
     </div>
     
     <div class="profile-container">
-        <img class="profile-picture" src="static/images/title/profile.jpg" alt="">
+        <img class="profile-picture" src="/static/images/title/profile.jpg" alt="">
         <div class="profile-text-container">
             <span class="profile-text">Profile</span>
             <i class="fas fa-caret-down"></i>
         </div>
-
-    <div class="toggle">
-        <i class="fas fa-moon toggle-icon"></i>
-        <i class="fas fa-sun toggle-icon"></i>
-        <div class="toggle-ball"></div>
-    </div>
  </div>
  </div>
 </div><br> <br>
  <div class="container">
     <div class="row1">
-        <img src="static/images/info/posterfinal.jpg" alt="poster" style="width: 300px; height: 450px;">
+        {% block poster %}{% endblock %}
     </div>
     <div class="row2">
         <div class="movie-details" id="movie-details">
-            <h2 id="movie-title">{% block moviename %}   {% endblock %}</h2>
-            <button class="watch-button">Watch</button>
-            <p class="movie-info" id="movie-director">Director: {% block director %}   {% endblock %}</p>
-            <p class="movie-info" id="movie-description">Story: {% block discription %}   {% endblock %}</p>
-            <p class="movie-info" id="movie-genre">Genre: {% block genre %}   {% endblock %}</p>
-            <p class="movie-info" id="movie-cast">Cast: {% block cast %}   {% endblock %}, {% block actor %}   {% endblock %}</p>
-            <p class="movie-info" id="movie-duration">Duration: {% block duration %}   {% endblock %}</p>
-            <p class="movie-info" id="movie-rating">IMDB Rating: {% block imdb %}   {% endblock %}</p>
-            <p class="movie-info" id="movie-rating">Rotten Tomatoes Rating: {% block rt %}   {% endblock %}</p>
-            <p class="movie-info" id="movie-releasedate">Release year: {% block year %}   {% endblock %}</p>
+            <h2 id="movie-title">{% block movienname %}{% endblock %}</h2>
+            <a href="{{ movie.trailer_link }}" class="watch-button" target="_blank">Watch Trailer</a>
+            <p class="movie-info" id="movie-director">Director: {% block director %}{% endblock %}</p>
+            <p class="movie-info" id="movie-description">Story: {% block discription %}{% endblock %}</p>
+            <p class="movie-info" id="movie-genre">Genre: {% block genre %}{% endblock %}</p>
+            <p class="movie-info" id="movie-cast">Cast: {% block cast %}{% endblock %}</p>
+            <p class="movie-info" id="movie-duration">Duration: {% block duration %}{% endblock %}</p>
+            <p class="movie-info" id="movie-rating">IMDB Rating: {% block imdb %}{% endblock %}</p>
+            <p class="movie-info" id="movie-rating">Rotten Tomatoes Rating: {% block rt %}{% endblock %}</p>
+            <p class="movie-info" id="movie-releasedate">Release year: {% block year %}{% endblock %}</p>
         </div>
     </div>
 </div><br> <br>
@@ -280,4 +274,3 @@
   </div>
  </body>
  </html>
-

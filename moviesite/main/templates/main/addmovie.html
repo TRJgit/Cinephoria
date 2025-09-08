@@ -4,134 +4,169 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="/static/css/style.css">
   <style>
+    .form-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field label {
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      background-color: #333;
+      border: 1px solid #555;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box; 
+    }
+    
     .footer {
-  display: flex;
-  flex-flow: row wrap;
-  padding: 30px 30px 20px 30px;
-  color: #ff0000;
-  background-color:#353535;
-  border-top: 1px solid rgb(239, 176, 176);
-}
+      display: flex;
+      flex-flow: row wrap;
+      padding: 30px 30px 20px 30px;
+      color: #ff0000;
+      background-color:#353535;
+      border-top: 1px solid rgb(239, 176, 176);
+    }
 
-.footer > * {
-  flex:  1 100%;
-}
+    .footer > * {
+      flex:  1 100%;
+    }
 
-.footer__addr {
-  margin-right: 1.25em;
-  margin-bottom: 2em;
-}
+    .footer__addr {
+      margin-right: 1.25em;
+      margin-bottom: 2em;
+    }
 
-.footer__logo {
-  font-family: 'Pacifico', cursive;
-  font-weight: 400;
-  text-transform: lowercase;
-  font-size: 1.5rem;
-}
+    .footer__logo {
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+      text-transform: lowercase;
+      font-size: 1.5rem;
+    }
 
-.footer__addr h2 {
-  margin-top: 1.3em;
-  font-size: 15px;
-  font-weight: 400;
-}
+    .footer__addr h2 {
+      margin-top: 1.3em;
+      font-size: 15px;
+      font-weight: 400;
+    }
 
-.nav__title {
-  font-weight: 400;
-  font-size: 15px;
-}
+    .nav__title {
+      font-weight: 400;
+      font-size: 15px;
+    }
 
-.footer address {
-  font-style: normal;
-  color: #ffffff;
-}
+    .footer address {
+      font-style: normal;
+      color: #ffffff;
+    }
 
-.footer__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 36px;
-  max-width: max-content;
-  background-color: rgba(255, 255, 255, 0.07);
-  border-radius: 100px;
-  color: #ffffff;
-  line-height: 0;
-  margin: 0.6em 0;
-  font-size: 1rem;
-  padding: 0 1.3em;
-}
+    .footer__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      max-width: max-content;
+      background-color: rgba(255, 255, 255, 0.07);
+      border-radius: 100px;
+      color: #ffffff;
+      line-height: 0;
+      margin: 0.6em 0;
+      font-size: 1rem;
+      padding: 0 1.3em;
+    }
 
-.footer ul {
-  list-style: none;
-  padding-left: 0;
-}
+    .footer ul {
+      list-style: none;
+      padding-left: 0;
+    }
 
-.footer li {
-  line-height: 2em;
-}
+    .footer li {
+      line-height: 2em;
+    }
 
-.footer a {
-  text-decoration: none;
-}
+    .footer a {
+      text-decoration: none;
+    }
 
-.footer__nav {
-  display: flex;
+    .footer__nav {
+      display: flex;
 	flex-flow: row wrap;
-}
+    }
 
-.footer__nav > * {
-  flex: 1 50%;
-  margin-right: 1.25em;
-}
+    .footer__nav > * {
+      flex: 1 50%;
+      margin-right: 1.25em;
+    }
 
-.nav__ul a {
-  color: #ffffff;
-}
+    .nav__ul a {
+      color: #ffffff;
+    }
 
-.nav__ul--extra {
-  column-count: 2;
-  column-gap: 1.25em;
-}
+    .nav__ul--extra {
+      column-count: 2;
+      column-gap: 1.25em;
+    }
 
-.legal {
-  display: flex;
-  flex-wrap: wrap;
-  color: #ffffff;
-}
+    .legal {
+      display: flex;
+      flex-wrap: wrap;
+      color: #ffffff;
+    }
   
-.legal__links {
-  display: flex;
-  align-items: center;
-}
+    .legal__links {
+      display: flex;
+      align-items: center;
+    }
 
-.heart {
-  color: #2f2f2f;
-}
+    .heart {
+      color: #2f2f2f;
+    }
 
-@media screen and (min-width: 24.375em) {
-  .legal .legal__links {
-    margin-left: auto;
-  }
-}
+    @media screen and (min-width: 24.375em) {
+      .legal .legal__links {
+        margin-left: auto;
+      }
+    }
 
-@media screen and (min-width: 40.375em) {
-  .footer__nav > * {
-    flex: 1;
-  }
+    @media screen and (min-width: 40.375em) {
+      .footer__nav > * {
+        flex: 1;
+      }
   
-  .nav__item--extra {
-    flex-grow: 2;
-  }
+      .nav__item--extra {
+        flex-grow: 2;
+      }
   
-  .footer__addr {
-    flex: 1 0px;
-  }
+      .footer__addr {
+        flex: 1 0px;
+      }
   
-  .footer__nav {
-    flex: 2 0px;
-  }
-}
+      .footer__nav {
+        flex: 2 0px;
+      }
+    }
   </style>
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
@@ -146,7 +181,8 @@
   background-color: black;
   position: sticky;
   top: 0;">
-    <div style="display: flex; align-items: center; padding: 0 50px; height: 100%; color: white; font-family: sans-serif;">
+    <div
+      style="display: flex; align-items: center; padding: 0 50px; height: 100%; color: white; font-family: sans-serif;">
       <div style="flex: 1;">
         <h1 style="font-size: 30px; color: #bd0000;">CINEPHORIA</h1>
       </div>
@@ -157,129 +193,182 @@
           <li style="margin-right: 30px;">Series</li>
           <li style="margin-right: 30px;">Popular</li>
           <li style="margin-right: 30px;">Trends</li>
-          
+
         </ul>
       </div>
       <div style=" flex: 2; display: flex; align-items: center; justify-content: flex-end;">
-        
-        <img style=" width: 32px; height: 32px; border-radius: 50%; object-fit: cover;" src="static/images/title/profile.jpg" alt="">
+
+        <img style=" width: 32px; height: 32px; border-radius: 50%; object-fit: cover;"
+          src="/static/images/title/profile.jpg" alt="">
         <div style="margin: 0 20px;">
           <span>Profile</span>
           <i class="fas fa-caret-down"></i>
         </div>
-        <div style="width: 40px; height: 20px; background-color: white; border-radius: 30px; display: flex; align-items: center; justify-content: space-around; position: relative;">
-          <i class="fas fa-moon toggle-icon"></i>
-          <i class="fas fa-sun toggle-icon"></i>
-          <div style=" width: 18px; height: 18px;  background-color: black; position: absolute; right: 1px; border-radius: 50%; cursor: pointer; transition: 1s ease all;"></div>
-        </div>
       </div>
     </div>
   </div>
-<div  style=" color: azure; font-size: 32px;">
+  <div style=" color: azure; font-size: 20px;">
     <div class="content-container">
-        <form method="post">
-            
-            {% csrf_token %} 
-            <br> <br><H4 style="font-family: sans-serif; text-align: center ;color:rgb(227, 31, 31) ;"> MOVIE REGISTRATION</H4>
-            <p style="font-family: sans-serif; text-align: center ; ">We encourage blooming movie makers and short film makers<br>who work passionately to achieve their dreams.<BR><BR> Publish your movie to the world using CinePhoria and let everyone know of your work.</p> <br>
-              <div style="text-align: center;">
-                {{form.as_p}}
-              </div>
-            <div style="text-align: center;">
-              <br><button style="width: 200px; height: 50px; font-size: 30px;background-color: red; color:white;text-align: center;"  type="submit", name="addmovie">Confirm</button>
+        <br> <br>
+        <H4 style="font-family: sans-serif; text-align: center ;color:rgb(227, 31, 31) ;font-size: 30px;"> MOVIE REGISTRATION</H4>
+        <p style="font-family: sans-serif; text-align: center ; ">We encourage blooming movie makers and short film
+          makers<br>who work passionately to achieve their dreams.<BR><BR> Publish your movie to the world using
+          CinePhoria and let everyone know of your work.</p> <br>
+      <form method="post" enctype="multipart/form-data" class="form-container">
+
+        {% csrf_token %}
+        <div class="form-grid">
+            <div class="form-column">
+                <div class="form-field">
+                    <label for="{{ form.title.id_for_label }}">Title</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.genre.id_for_label }}">Genre</label>
+                    {{ form.genre }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.duration.id_for_label }}">Duration</label>
+                    {{ form.duration }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.release_date.id_for_label }}">Release Date</label>
+                    {{ form.release_date }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.language.id_for_label }}">Language</label>
+                    {{ form.language }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.poster.id_for_label }}">Poster</label>
+                    {{ form.poster }}
+                </div>
             </div>
-            
-        </form>
+            <div class="form-column">
+                <div class="form-field">
+                    <label for="{{ form.imdb_rating.id_for_label }}">IMDB Rating</label>
+                    {{ form.imdb_rating }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.rottentomatoes_rating.id_for_label }}">Rotten Tomatoes Rating</label>
+                    {{ form.rottentomatoes_rating }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.director.id_for_label }}">Director</label>
+                    {{ form.director }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.actors.id_for_label }}">Actors (comma-separated)</label>
+                    {{ form.actors }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.trailer_link.id_for_label }}">Trailer Link</label>
+                    {{ form.trailer_link }}
+                </div>
+            </div>
+        </div>
+        <div class="form-field" style="grid-column: 1 / -1;">
+            <label for="{{ form.description.id_for_label }}">Description</label>
+            {{ form.description }}
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <br><button
+            style="width: 200px; height: 50px; font-size: 30px;background-color: red; color:white;text-align: center;"
+            type="submit" , name="addmovie">Confirm</button>
+        </div>
+
+      </form>
     </div>
-</div>
-
-<div class="footer">
-  <div class="footer__addr">
-    <h1 class="footer__logo">CinePhoria</h1>
-        
-    <h2>Contact</h2>
-    
-    <address>
-      5534 Somewhere In. The World 22193-10212<br>
-          
-      <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
-    </address>
   </div>
-  
-  <ul class="footer__nav">
-    <li class="nav__item">
-      <h2 class="nav__title">Quick Links</h2>
 
-      <ul class="nav__ul">
-        <li>
-          <a href="#">Tamil</a>
-        </li>
+  <div class="footer">
+    <div class="footer__addr">
+      <h1 class="footer__logo">CinePhoria</h1>
 
-        <li>
-          <a href="#">English</a>
-        </li>
-            
-        <li>
-          <a href="#">Hindi</a>
-        </li>
-      </ul>
-    </li>
-    
-    <li class="nav__item nav__item--extra">
-      <h2 class="nav__title">Socials</h2>
-      
-      <ul class="nav__ul nav__ul--extra">
-        <li>
-          <a href="#">Instagram</a>
-        </li>
-        
-        <li>
-          <a href="#">Twitter X</a>
-        </li>
-        
-        <li>
-          <a href="#">Facebook</a>
-        </li>
-        
-        <li>
-          <a href="#">Creator</a>
-        </li>
-        
-        <li>
-          <a href="#">Admin</a>
-        </li>
-        
-        <li>
-          <a href="#">Home</a>
-        </li>
-      </ul>
-    </li>
-    
-    <li class="nav__item">
-      <h2 class="nav__title">Legal</h2>
-      
-      <ul class="nav__ul">
-        <li>
-          <a href="#">Privacy Policy</a>
-        </li>
-        
-        <li>
-          <a href="#">Terms of Use</a>
-        </li>
-        
-        <li>
-          <a href="#">Sitemap</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  
-  <div class="legal">
-    <p>&copy; 2024 CinePhoria. All rights reserved.</p>
-    
-   
+      <h2>Contact</h2>
+
+      <address>
+        5534 Somewhere In. The World 22193-10212<br>
+
+        <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+      </address>
+    </div>
+
+    <ul class="footer__nav">
+      <li class="nav__item">
+        <h2 class="nav__title">Quick Links</h2>
+
+        <ul class="nav__ul">
+          <li>
+            <a href="#">Tamil</a>
+          </li>
+
+          <li>
+            <a href="#">English</a>
+          </li>
+
+          <li>
+            <a href="#">Hindi</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav__item nav__item--extra">
+        <h2 class="nav__title">Socials</h2>
+
+        <ul class="nav__ul nav__ul--extra">
+          <li>
+            <a href="#">Instagram</a>
+          </li>
+
+          <li>
+            <a href="#">Twitter X</a>
+          </li>
+
+          <li>
+            <a href="#">Facebook</a>
+          </li>
+
+          <li>
+            <a href="#">Creator</a>
+          </li>
+
+          <li>
+            <a href="#">Admin</a>
+          </li>
+
+          <li>
+            <a href="#">Home</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav__item">
+        <h2 class="nav__title">Legal</h2>
+
+        <ul class="nav__ul">
+          <li>
+            <a href="#">Privacy Policy</a>
+          </li>
+
+          <li>
+            <a href="#">Terms of Use</a>
+          </li>
+
+          <li>
+            <a href="#">Sitemap</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="legal">
+      <p>&copy; 2024 CinePhoria. All rights reserved.</p>
+
+
+    </div>
   </div>
-</div>
 
- </body>
- </html>
+</body>
+
+</html>
