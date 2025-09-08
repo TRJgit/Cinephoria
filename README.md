@@ -29,27 +29,31 @@ To get a local copy up and running, follow these simple steps.
 ### Prerequisites
 
   * Python 3.x
-  * Django
+  * pip
 
 ### Installation
 
 1.  **Clone the repo**
     ```sh
-    git clone https://github.com/your_username_/Cinephoria.git
+    git clone https://github.com/TRJgit/Cinephoria.git
     ```
 2.  **Navigate to the project directory**
     ```sh
-    cd Cinephoria/moviesite
+    cd Cinephoria-main/moviesite
     ```
 3.  **Install dependencies**
     ```sh
     pip install -r requirements.txt
     ```
-4.  **Run the development server**
+4.  **Run Migrations**
+    ```sh
+    python manage.py migrate
+    ```
+5.  **Run the development server**
     ```sh
     python manage.py runserver
     ```
-5.  Open your browser and go to `http://127.0.0.1:8000/`
+6.  Open your browser and go to `http://127.0.0.1:8000/`
 
 ## Project Structure
 
@@ -79,6 +83,8 @@ moviesite/
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
+├── .env
 ├── db.sqlite3
-└── manage.py
+├── manage.py
+└── requirements.txt
 ```
