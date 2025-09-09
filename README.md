@@ -1,6 +1,6 @@
 # Cinephoria: Your Personal Movie Database
 
-Cinephoria is a web-based application built with Django that allows users to browse, add, and get information about movies. It's your own personal movie database where you can explore a collection of films, view their details, and even contribute by adding new movies to the database.
+Cinephoria is a web-based application built with Django that allows users to add, and view information about movies. It's your own personal movie database where you can explore a collection of films, view their details, and even contribute by adding new movies to the database.
 
 ## Features
 
